@@ -1,0 +1,42 @@
+
+.home_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 100px;
+    background: #1258f2;
+}
+
+.home_header h1 {
+    color: white;
+   font-size: 40px;
+    line-height: 0px;
+}
+
+.home_header h2 {
+    color: white;
+    font-size: 16px;
+    line-height: 0px;
+    font-weight: normal;
+    margin-top: 40px;
+}
+.search-box{
+    display: flex;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.event-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    justify-items: center;
+}
+.event-card{
+    margin: 20px;
+}
+.booking-button{
+    margin-top: 20px;
+width: 100%;
+}
