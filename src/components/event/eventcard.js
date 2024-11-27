@@ -127,7 +127,7 @@
 
 import React from 'react';
 
-const EventCard = ({ imageSrc }) => {
+const EventCard = ({ imageSrc,buyTickets }) => {
   return (
     <div
       className="event-card"
@@ -186,8 +186,10 @@ const EventCard = ({ imageSrc }) => {
           </p>
         </div>
 
-        {/* Buy Tickets Button */}
+ 
         <button
+        onClick={buyTickets}
+
           style={{
             display: 'block',
             width: '100%',

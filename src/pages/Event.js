@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Eventheader from '../components/event/eventheader';
 import EventCard from '../components/event/eventcard';
 
@@ -84,6 +84,36 @@ function DiyalumaWaterfallAbseiling() {
   const eventData = location.state;
   console.log("eventDataeventData",eventData)
 
+    // State for popup visibility
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    // State for form data
+    const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      phone: '',
+    });
+  
+    // Handlers for form input changes
+    const handleInputChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+    // Handler for opening and closing the popup
+    const togglePopup = () => {
+      setIsPopupOpen(!isPopupOpen);
+    };
+  
+    // Handler for form submission
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+      console.log('Form Data Submitted:', formData);
+      // Close the popup
+      setIsPopupOpen(false);
+    };
+
+    
+
   return (
     <div className="event-page">
       <TopNav />
@@ -151,8 +181,62 @@ function DiyalumaWaterfallAbseiling() {
 
 
         <div className="event-card-right">
-        <EventCard imageSrc={eventData?.imgSrc} />
+        <EventCard imageSrc={eventData?.imgSrc} buyTickets={togglePopup} />
         </div>
+
+ 
+      {isPopupOpen && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <h3>Enter Personal Details</h3>
+            <form onSubmit={handleFormSubmit}>
+              <div className=''>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              </div>
+              <div>
+              <label>
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              </div>
+              <div>
+              <label>
+                Phone:
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              </div>
+              <div className="popup-buttons">
+              <button type="button" onClick={togglePopup}>
+                  Cancel
+                </button>
+                <button type="submit">Submit</button>
+               
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );
