@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import TopNav from "../components/layout/TopNav";
 import "./home.css"; // Optional: If you want to use external CSS
 
@@ -18,9 +19,13 @@ import "./home.css"; // Optional: If you want to use external CSS
 // import RecommendedProducts from "../components/common/RecommendedProducts";
 // import { getFilterProducts } from "../api/products";
 import {Input, Card, Button} from 'antd'
+import { Link, useNavigate } from 'react-router-dom';
+
 const { Search } = Input;
 const { Meta } = Card;
+
 const Home = () => {
+    const navigate = useNavigate();
 
     const dummyData = [
         {
@@ -67,6 +72,13 @@ const Home = () => {
 
     ];
 
+    const handleEventClick = (item) => {
+        navigate("/event", { state: item });
+        // e.preventDefault(); 
+        window.location.reload(); 
+      };
+    
+
 
   return (
     <>
@@ -101,7 +113,7 @@ const Home = () => {
                     cover={<img alt={item.title} src={item.imgSrc} />}
                 >
                     <Meta title={item.title} description={item.description} />
-                    <Button className='booking-button' type="primary">Book Now</Button>
+                    <Button  onClick={() => handleEventClick(item)} className='booking-button' type="primary">Book Now</Button>
                 </Card>
             ))}
         </div>

@@ -1,36 +1,36 @@
 /* Header.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  padding-left: 8.5rem;
+  padding-right: 8.5rem;
+}
 
-  }
-  
-  .logo h1 {
-    margin: 0;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .nav-list li {
-    margin-left: 20px;
-  }
-  
-  .nav-list a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-  }
-  
-  .nav-list a:hover {
-    text-decoration: underline;
-  }
-  
+.logo h1 {
+  margin: 0;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-list li {
+  margin-left: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
